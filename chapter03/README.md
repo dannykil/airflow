@@ -17,4 +17,4 @@ airflow webserver & \
 airflow scheduler \
 '
 
-docker exec -it airflow /bin/bash
+docker exec -it chapter03 /bin/bash
