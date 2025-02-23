@@ -18,3 +18,19 @@ airflow scheduler \
 '
 
 docker exec -it chapter03 /bin/bash
+
+cron
+0 \* \* \* _ = 매시간(정시)
+0 0 _ \* _ = 매일(자정)
+0 0 _ _ 0 = 매주(일요일 자정)
+0 0 1 _ _ = 매월 1일 자정
+45 23 _ _ SAT = 매주 토요일 23시 45분
+0 0 _ _ MON, WED, FRI = 매주 월, 수, 금 자정
+0 0,12 _ \* \* = 매일 자정, 오후 12시
+
+@once
+@hourly
+@daily
+@weekly
+@monthly
+@yearly
