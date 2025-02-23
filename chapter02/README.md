@@ -40,4 +40,4 @@ mkdir /opt/anaconda3/lib/python3.12/site-packages/airflow/example_dags/education
 
 ls -l | grep ^- | wc -l
 
-docker exec -it airflow /bin/bash
+docker exec -it chapter03 /bin/bash
