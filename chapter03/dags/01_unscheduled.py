@@ -1,13 +1,40 @@
 from datetime import datetime
 from pathlib import Path
-
+import datetime as dt
 import pandas as pd
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 
+# chapter01
+# dag = DAG(
+#     dag_id="01_unscheduled", 
+#     start_date=datetime(2019, 1, 1), 
+#     schedule_interval=None
+# )
+
+# chapter02
+# dag = DAG(
+#     dag_id="02_daily_schedule",
+#     schedule_interval="@daily",
+#     start_date=datetime(2019, 1, 1),
+#     end_date=datetime(2019, 1, 5), # 없으면 영원히 실행됨
+# )
+
+# chapter03
+# dag = DAG(
+#     dag_id="03_with_end_date",
+#     schedule_interval="@daily", 
+#     start_date=dt.datetime(year=2019, month=1, day=1),
+#     end_date=dt.datetime(year=2019, month=1, day=5), # end_date가 없으면 영원히 실행됨
+# )
+
+# # chapter04
 dag = DAG(
-    dag_id="01_unscheduled", start_date=datetime(2019, 1, 1), schedule_interval=None
+    dag_id="04_time_delta",
+    schedule_interval=dt.timedelta(days=3), # 빈도 기반 스케줄(1일, 4일 ...)
+    start_date=dt.datetime(year=2019, month=1, day=1),
+    end_date=dt.datetime(year=2019, month=1, day=5), # end_date가 없으면 영원히 실행됨
 )
 
 # curl -o [저장할_파일명] [다운로드할_URL]
